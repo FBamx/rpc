@@ -29,7 +29,7 @@ type Server struct {
 func (s *Server) SayHello(_ context.Context, req *helloworld.Request) (resp *helloworld.Response, err error) {
 	log.Printf("Received: %v", req.GetName())
 	return &helloworld.Response{
-		Message: "Hello " + req.GetName(),
+		Message: fmt.Sprintf("From localhost:%d Hello %s", *port, req.GetName()),
 	}, nil
 }
 
